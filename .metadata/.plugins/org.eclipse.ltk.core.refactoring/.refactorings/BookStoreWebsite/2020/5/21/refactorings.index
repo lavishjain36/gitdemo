@@ -1,0 +1,31 @@
+1589725797669	Copy file
+1589725813051	Delete element
+1589725822013	Copy file
+1589792051525	Copy file
+1589808170284	Copy file
+1589866073271	Copy file
+1590212072182	Rename field 'fullname'
+1590212129621	Rename local variable 'fullname'
+1590212165579	Rename local variable 'fullname'
+1590212270403	Rename method 'getFullname'
+1590212357689	Rename method 'setFullname'
+1590212411689	Rename local variable 'fullname'
+1590213392619	Rename field 'address'
+1590213406668	Rename local variable 'address'
+1590213448781	Rename local variable 'address'
+1590213553616	Rename method 'getAddress'
+1590213568186	Rename method 'setAddress'
+1590213632118	Rename local variable 'address'
+1590243433714	Rename local variable 'fullName'
+1590243560928	Rename local variable 'address'
+1590245383287	Rename local variable 'fullName'
+1590254681561	Rename local variable 'addressLine1'
+1590254708511	Rename local variable 'address'
+1590255223523	Rename local variable 'fullName'
+1590255294890	Rename local variable 'address'
+1590255455577	Rename local variable 'fullName'
+1590255506851	Rename local variable 'address'
+1590258930010	Extract method 'generateCountryList'
+1590260062900	Rename local variable 'fullName'
+1590260107708	Rename local variable 'address'
+1590262268527	Copy file

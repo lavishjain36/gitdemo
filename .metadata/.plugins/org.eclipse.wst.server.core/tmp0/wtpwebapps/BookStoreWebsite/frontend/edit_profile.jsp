@@ -1,0 +1,187 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register as a Customer</title>
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/jquery-3.5.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+
+
+
+</head>
+<body>
+	<jsp:directive.include file="header.jsp" />
+
+	<div align="center">
+		<h2 class="pageheading">Edit My Profile</h2>
+	</div>
+
+
+	<div align="center">
+		<form action="update_profile" method="post" id="customerForm">
+
+			<table class="form">
+				<tr>
+					<td align="right">E-mail:</td>
+					<td align="left"><b>${loggedCustomer.email}</b> (Cannot be
+						changed)</td>
+				</tr>
+
+				<tr>
+					<td align="right">First Name:</td>
+					<td align="left"><input type="text" id="firstname"
+						name="firstname" size="45" value="${loggedCustomer.firstname}" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">Last Name:</td>
+					<td align="left"><input type="text" id="lastname"
+						name="lastname" size="45" value="${loggedCustomer.lastname}" /></td>
+				</tr>
+
+
+
+
+				<tr>
+					<td align="right">Phone Number:</td>
+					<td align="left"><input type="text" id="phone" name="phone"
+						size="45" value="${loggedCustomer.phone}" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">Address Line 1:</td>
+					<td align="left"><input type="text" id="address1"
+						name="address1" size="45" value="${loggedCustomer.addressLine1}" /></td>
+				</tr>
+				<tr>
+					<td align="right">Address Line 2:</td>
+					<td align="left"><input type="text" id="address2"
+						name="address2" size="45" value="${loggedCustomer.addressLine2}" /></td>
+				</tr>
+
+
+				<tr>
+					<td align="right">City:</td>
+					<td align="left"><input type="text" id="city" name="city"
+						size="45" value="${loggedCustomer.city}" /></td>
+				</tr>
+
+
+				<tr>
+					<td align="right">State:</td>
+					<td align="left"><input type="text" id="state" name="state"
+						size="45" value="${loggedCustomer.state}" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">ZipCode:</td>
+					<td align="left"><input type="text" id="zipcode"
+						name="zipcode" size="45" value="${loggedCustomer.zipcode}" /></td>
+				</tr>
+
+
+				<tr>
+					<td align="right">Country:</td>
+					<td align="left"><select name="country" id="country">
+							<c:forEach items="${mapCountries}" var="country">
+								<option value="${country.value }"
+									<c:if test='${loggedCustomer.country eq country.value}'>selected='selected'</c:if>>${country.key}</option>
+							</c:forEach>
+					</select> 
+				</tr>
+
+				<tr>
+					<td colspan="2" align="center"><i>(Leave password fields
+							blank if you don't want to change password)</i></td>
+				</tr>
+
+				<tr>
+					<td align="right">Password:</td>
+					<td align="left"><input type="password" id="password"
+						name="password" size="45" /></td>
+				</tr>
+
+				<tr>
+					<td align="right">Confirm password:</td>
+					<td align="left"><input type="Password" id="confirmPassword"
+						name="confirmPassword" size="45" /></td>
+				</tr>
+
+
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<button type="submit">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
+						<button id="buttonCancel">Cancel</button>
+					</td>
+				</tr>
+
+
+			</table>
+		</form>
+	</div>
+
+
+	<jsp:directive.include file="footer.jsp" />
+</body>
+<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						$("#customerForm")
+								.validate(
+										{
+
+											rules : {
+												email : {
+													required : true,
+													email : true
+
+												},
+												fullName : "required",
+
+												confirmPassword : {
+													equalTo : "#password"
+												},
+												phone : "required",
+												address : "required",
+												city : "required",
+												zipCode : "required",
+												country : "required",
+
+											},
+
+											message : {
+												email : {
+													required : "please enter e-mail address",
+													email : "please enter a valid e-mail address"
+
+												},
+												fullName : "please enter full name",
+
+												confirmPassword : {
+													equalTo : "Confirm password does not match password with entered password"
+												},
+												phone : "please enter phone number",
+												address : "please enter address",
+												city : "please enter city",
+												zipCode : "please enter zip code",
+												country : "please enter country",
+											}
+										});
+
+						$("#buttonCancel").click(function() {
+							history.go(-1);
+						});
+
+					});
+</script>
+</html>
